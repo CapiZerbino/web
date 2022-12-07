@@ -8,6 +8,15 @@ class CompanyModel extends Model
     private string $company_url;
     private string $company_establish_date;
 
+    private string $keywords;
+
+    private int $company_id;
+
+    public function loadQuery($query)
+    {
+        $this->keywords = $query;
+    }
+
     public function loadParams($name, $description, $image, $type, $url, $establish_date)
     {
         $this->company_name = $name;
@@ -16,6 +25,10 @@ class CompanyModel extends Model
         $this->company_type = $type;
         $this->company_url = $url;
         $this->company_establish_date = $establish_date;
+    }
+
+    public function loadId($id) {
+        $this->company_id = $id;
     }
 
     public function validate(): bool
@@ -104,9 +117,38 @@ class CompanyModel extends Model
             case "AddCompany":
                 $this->addCompany();
                 break;
+            case "SearchCompany":
+                $this->searchCompany();
+                break;
+            case "ViewCompanyDetail":
+                $this->viewCompanyDetail();
+                break;
+            case "GetCompanyById":
+                $this->getCompanyById();
+                break;
             default:
                 break;
         }
+    }
+
+    private function searchCompany()
+    {
+        $keywords = explode(' ', $this->keywords);
+        $searchTermKeywords = array();
+        foreach ($keywords as $word)
+        {
+            $searchTermKeywords[] = "`company_name` LIKE '%$word%'";
+        }
+        $sql = "SELECT * FROM `company` WHERE " .implode(' AND ', $searchTermKeywords);
+        $result = $this->db_instance->query($sql);
+        $this->response["result"] = $result->fetch_all();
+    }
+
+    private function viewCompanyDetail()
+    {
+        $sql = "SELECT * FROM `company` WHERE `id` =" .$this->company_id;
+        $result = $this->db_instance->query($sql);
+        $this->response["result"] = $result->fetch_all();
     }
 
     private function addCompany()
@@ -137,6 +179,13 @@ class CompanyModel extends Model
     private function getCompany()
     {
 
+    }
+
+    private function getCompanyById()
+    {
+        $sql = "SELECT * FROM `company` WHERE `id` = " .$this->company_id;
+        $result = $this->db_instance->query($sql);
+        $this->response["result"] = $result->fetch_all();
     }
 
     public function addImage(int $company_id, string $company_image)

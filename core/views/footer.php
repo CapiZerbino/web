@@ -6,12 +6,10 @@
             <!-- Grid column -->
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <!-- Content -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                    <i class="fas fa-gem me-3"></i>Company name
+                <h6 class="text-uppercase fw-bold mb-4">Student name
                 </h6>
                 <p>
-                    Here you can use rows and columns to organize your footer content. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit.
+                    Tieu Viet Trong Nghia - 1852611
                 </p>
             </div>
             <!-- Grid column -->
@@ -19,19 +17,19 @@
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <!-- Links -->
                 <h6 class="text-uppercase fw-bold mb-4">
-                    Products
+                    Lab Progress
                 </h6>
                 <p>
-                    <a href="#!" class="text-reset">Angular</a>
+                    <a href="#!" class="text-reset">Lab 1</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-reset">React</a>
+                    <a href="#!" class="text-reset">Lab 2</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-reset">Vue</a>
+                    <a href="#!" class="text-reset">Lab 3</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-reset">Laravel</a>
+                    <a href="#!" class="text-reset">Lab 4</a>
                 </p>
             </div>
             <!-- Grid column -->
@@ -40,19 +38,16 @@
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                 <!-- Links -->
                 <h6 class="text-uppercase fw-bold mb-4">
-                    Useful links
+                    Lab Progress
                 </h6>
                 <p>
-                    <a href="#!" class="text-reset">Pricing</a>
+                    <a href="#!" class="text-reset">Lab 5</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-reset">Settings</a>
+                    <a href="#!" class="text-reset">Lab 6</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-reset">Orders</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Help</a>
+                    <a href="#!" class="text-reset">Lab 7</a>
                 </p>
             </div>
             <!-- Grid column -->
@@ -76,8 +71,8 @@
 
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        © 2022 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Web Programming Assignment</a>
     </div>
     <!-- Copyright -->
 </footer>

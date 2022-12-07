@@ -1,16 +1,9 @@
 <?php
 
-const DB_SERVER = '127.0.0.1';
+const DB_SERVER = 'localhost';
 const DB_USERNAME = 'root';
-const DB_PASSWORD = 'root';
+const DB_PASSWORD = '';
 const DB_NAME = 'jobseeker';
-
-//enum Request
-//{
-//    case GET;
-//    case POST;
-//    case UPDATE;
-//}
 
 abstract class Model {
     protected mysqli $db_instance;

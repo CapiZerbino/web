@@ -18,11 +18,14 @@ class RouterController extends Controller
     public function process($param)
     {
         // TODO: Implement process() method.
+
         $parsed_url = $this->parseUrl($param[0]);
         if(empty($parsed_url[1]))
             $this->redirect('home');
+
         array_shift($parsed_url);
         $controller_name = $this->dashesToCamel(array_shift($parsed_url) . 'Controller');
+        echo $controller_name;
         if(file_exists('../core/controllers/'.$controller_name.'.php'))
         {
             $this->controller = new $controller_name;

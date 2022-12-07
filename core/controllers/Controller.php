@@ -1,7 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\NoReturn;
-
 abstract class Controller {
     protected array $data = array();
     protected string $view = '';
@@ -15,9 +13,10 @@ abstract class Controller {
             require ('../core/views/' . $this->view . '.php');
         }
     }
-    #[NoReturn] public function redirect($url): void
+    public function redirect($url)
     {
-        header("Location: $url");
+        echo $url;
+        header("Location: http://localhost/public/$url");
         header("Connection: close");
         exit;
     }

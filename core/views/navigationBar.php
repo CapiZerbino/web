@@ -8,13 +8,16 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="createJobDescription">Create a job description</a>
+                        <a class="nav-link" href="job/create">Create a job description</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="findJob">Find a job</a>
+                        <a class="nav-link" href="company/find">Find a company</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="job/find">Find a job</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="job/all">All job</a>
                     </li>
                 </ul>
                 <span class="navbar-text">

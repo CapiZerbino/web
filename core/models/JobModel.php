@@ -11,6 +11,8 @@ class JobModel extends Model
     private int $job_location_id;
     private bool $is_active;
 
+    private string $keyword;
+
     public function loadParams($posted_by_id, $job_type_id, $company_id, $is_company_name_hidden, $job_description, $job_location_id, $is_active)
     {
         $this->posted_by_id = $posted_by_id;
@@ -55,6 +57,12 @@ class JobModel extends Model
             case "AddJob":
                 $this->addJob();
                 break;
+            case "SearchJob":
+                $this->searchJob();
+                break;
+            case "GetAllJob":
+                $this->getJob();
+                break;
             default:
                 break;
         }
@@ -63,6 +71,19 @@ class JobModel extends Model
 
     private function getJob()
     {
+        $sql = "SELECT * FROM `job_post`";
+        $result = $this->db_instance->query($sql);
+        $this->response["result"] = $result->fetch_all();
+    }
+
+    private function searchJob()
+    {
+//        $keywords = explode(' ', $this->keyword);
+//        $searchTermKeywords = array();
+//        foreach ($keywords as $word)
+//        {
+//            $searchTermKeywords[] = ""
+//        }
 
     }
 
