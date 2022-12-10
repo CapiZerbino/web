@@ -25,6 +25,7 @@ class JobController extends Controller
                         $res_company = $company->getResponse();
                         if(!empty($res_company["result"])) {
                             $res[] = (object)[
+                                "job_id" => $job[0],
                                 "company_name" => $res_company["result"][0][1],
                                 "job_description" => $job[6],
                                 "created_date" => $job[5],
@@ -53,6 +54,21 @@ class JobController extends Controller
                     }
                 }
                 $this->view = "findJob";
+                break;
+            case "apply":
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $job = new JobModel();
+                    $job->loadQuery($_GET["search"]);
+                    $job->executeQuery("SearchJob");
+                    $res = $job->getResponse();
+                    if(!empty($res["result"]))
+                    {
+                        $_SESSION["result"] = $res["result"];
+                    } else {
+                        $_SESSION["message"] = "Cannot found job";
+                    }
+                }
+                $this->view = "jobApply";
                 break;
             case "create":
                 if(!$_SESSION['logged'])

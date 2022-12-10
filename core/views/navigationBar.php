@@ -19,6 +19,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="job/all">All job</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile/update">Update CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile/view">My CV</a>
+                    </li>
                 </ul>
                 <span class="navbar-text">
                 <?php
