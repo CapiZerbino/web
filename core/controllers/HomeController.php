@@ -13,6 +13,12 @@ class HomeController extends Controller
                 $this->header['description'] = 'Jobseeker\s homepage';
                 $this->view = 'home';
                 break;
+            case 'sitemap':
+                header("HTTP/1.0 200");
+                $this->header['title'] = 'Sitemap';
+                $this->header['description'] = 'Sitemap';
+                $this->view = 'sitemap';
+                break;
             default:
                 $this->redirect('Error');
         }

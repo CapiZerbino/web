@@ -7,13 +7,13 @@
                     <div>
                         <?php
                         if(!empty($_SESSION["job_applied"])) {
-                            foreach ($_SESSION["job_applied"] as $job) {
+                            foreach ($_SESSION["job_applied"] as $cv) {
                                 echo "
                                     <div class='card my-3'>
                                         <div class='card-body'>
-                                            <h5 class='card-title'>Company: $job->company_name</h5>
-                                            <h6 class='card-subtitle mb-2 text-muted'>Job description: $job->job_description</h6>
-                                            <p class='card-text'>Created date: $job->apply_date</p>
+                                            <h5 class='card-title'>Email: $cv->email</h5>
+                                             <h6 class='card-subtitle mb-2 text-muted'>Candidate with id $cv->user_id</h6>
+                                             <a href='profile/view/$cv->user_id' class='site-button'>View CV</a>
                                         </div>
                                     </div>
                                     ";

@@ -1,7 +1,6 @@
 <?php
 class CompanyController extends Controller
 {
-
     function process($param)
     {
         // TODO: Implement process() method.
@@ -15,28 +14,49 @@ class CompanyController extends Controller
                 $this->header["title"] = "View Job Page";
                 $this->header["description"] = "View Job";
                 break;
-            case "job-applied":
-                header("HTTP/1.0 200");
-                $this->header["title"] = "View Job Applied Page";
-                $this->header["description"] = "View Job Applied";
-                $job_post_id = $_SESSION["job_post_id"];
-                $job_post_activity = new JobPostActivityModel();
-                $job_post_activity->loadPostId($job_post_id);
-                $job_post_activity->executeQuery("GetByPostId");
-                $res = $job_post_activity->getResponse();
-                if(!empty($res["result"])) {
+            case "cv-applied":
+                // TODO: view cv apply is just for employee
+                if($_SESSION['logged'] && $_SESSION['user_type'] == 'employee') {
+                    header("HTTP/1.0 200");
+                    $this->header["title"] = "View Job Applied Page";
+                    $this->header["description"] = "View Job Applied";
+                    $user_id = $_SESSION['id'];
+                    $job_post = new JobModel();
+                    $result = $job_post->getJobsByUserAccountId($user_id);
                     $job_applied = array();
-                    foreach ($res["result"] as $job_post_activity) {
-                        $user_account_id = $job_post_activity[0];
-                        $this->handleGetCV($user_account_id);
+                    foreach ($result as $job_post_item)
+                    {
+                        $job_post_id = $job_post_item[0];
+                        $job_post_activity = new JobPostActivityModel();
+                        $job_post_activity->loadPostId($job_post_id);
+                        $job_post_activity->executeQuery("GetByPostId");
+                        $res = $job_post_activity->getResponse(); // -> return array of post
+                        // TODO: get all user_account_id linked to post
+                        if(!empty($res["result"])) {
+
+                            foreach ($res["result"] as $job_post_activity) {
+                                $user_account_id = $job_post_activity[0];
+                                $user = new UserModel();
+                                $result = $user->getUserById($user_account_id);
+                                $job_applied[] = (object)[
+                                    "user_id"=>$result[0][0],
+                                    "email" =>$result[0][2],
+                                ];
+                            }
+
+                        } else {
+                            $_SESSION["message"] = "Cannot found job";
+                        }
                     }
                     $_SESSION["job_applied"] = $job_applied;
+                    $this->view = "viewCVEmployee";
                 } else {
-                    $_SESSION["message"] = "Cannot found job";
+                    $this->redirect('home');
                 }
-                $this->view = "viewApplyEmployee";
+
                 break;
             case "find":
+                // TODO: finding company for all type of user
                 header("HTTP/1.0 200");
                 $this->header["title"] = "Find Company Page";
                 $this->header["description"] = "Find a company";

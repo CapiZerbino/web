@@ -43,4 +43,10 @@ class UserModel extends Model
         $this->response["result"] = $result->fetch_all();
     }
 
+    public function getUserById($id):array
+    {
+        $sql = "SELECT * FROM `user_account` WHERE `id` = ".$id;
+        return $this->db_instance->query($sql)->fetch_all();
+    }
+
 }

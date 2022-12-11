@@ -158,6 +158,12 @@ class JobModel extends Model
         return [];
     }
 
+    public function getJobsByUserAccountId($id): array
+    {
+        $sql = "SELECT * FROM `job_post` WHERE `posted_by_id` = " . $id;
+        return $this->db_instance->query($sql)->fetch_all();
+    }
+
 
 
 }

@@ -25,7 +25,6 @@ class RouterController extends Controller
 
         array_shift($parsed_url);
         $controller_name = $this->dashesToCamel(array_shift($parsed_url) . 'Controller');
-        echo $controller_name;
         if(file_exists('../core/controllers/'.$controller_name.'.php'))
         {
             $this->controller = new $controller_name;

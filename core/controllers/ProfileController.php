@@ -67,7 +67,11 @@ class ProfileController extends Controller
             case "view":
                 $this->header["title"] = "My CV Page";
                 $this->header["description"] = "View my CV";
-                $user_account_id = $_SESSION["id"];
+                if($_SESSION["user_type"] == 'employee') {
+                    $user_account_id = array_shift($param);
+                } else {
+                    $user_account_id = $_SESSION["id"];
+                }
                 $this->handleGetCV($user_account_id);
                 break;
             case "update":

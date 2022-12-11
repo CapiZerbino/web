@@ -1,4 +1,3 @@
-
 <footer class="site-footer">
     <div class="footer-top">
         <div class="container">
@@ -6,8 +5,7 @@
                 <div class="col-xl-5 col-lg-4 col-md-12 col-sm-12">
                     <div class="widget">
                         <img src="images/logo-white.png" width="180" class="m-b15" alt="" />
-                        <p class="text-capitalize m-b20">Lorem Ipsum is simply dummy text of the printing and typesetting industry
-                            has been the industry's standard dummy text ever since the..</p>
+                        <p class="text-capitalize m-b20">JobFinding is the leading job search website in Vietnam. Unlike other job search sites, here you can find tens of thousands of job openings from many sources in Vietnam including job search aggregators, from many employers and Vietnamese companies. We understand that finding a job takes a lot of time and effort, so we're always trying to make our website easy to use and convenient.</p>
                         <div class="subscribe-form m-b20">
                             <form class="dzSubscribe" action="" method="post">
                                 <div class="dzSubscribeMsg"></div>

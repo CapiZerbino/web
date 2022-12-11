@@ -45,7 +45,7 @@
                             <a href="home">Home</a>
                         </li>
                         <li>
-                            <a href="info">Site Map</a>
+                            <a href="home/sitemap">Site Map</a>
                         </li>
                         <li>
                             <a href="company/find">Find a company</a>

@@ -11,7 +11,12 @@ class JobController extends Controller
             case "":
                 break;
             case "all":
+                // TODO: view all job for all type of user
+                $_SESSION["result"] = null;
                 $this->view = "allJob";
+                header("HTTP/1.0 200");
+                $this->header["title"] = "All Job Page";
+                $this->header["description"] = "List all job";
                 $job = new JobModel();
                 $job->executeQuery("GetAllJob");
                 $res_job = $job->getResponse();
