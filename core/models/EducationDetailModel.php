@@ -11,6 +11,11 @@ class EducationDetailModel extends Model
     private float $percentage;
     private float $cgpa;
 
+    public function loadQuery($user_account_id)
+    {
+        $this->user_account_id = $user_account_id;
+    }
+
     public function loadParams($user_account_id, $certificate_degree_name, $major, $Institute_university_name, $starting_date, $completion_date,$percentage , $cgpa)
     {
         $this->user_account_id = $user_account_id;

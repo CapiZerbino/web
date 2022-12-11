@@ -3,7 +3,9 @@
         <div class="container p-5">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                    <h5 class="text-uppercase text-left mb-2">Update profile</h5>
+                    <div class="p-3 mb-3  bg-light text-dark">
+                        <h5 class="text-uppercase text-center fw6 m-0">Update profile</h5>
+                    </div>
                     <form method="post" action="profile/update">
                         <div class="form-row mb-4">
                             <!-- First Name -->
@@ -23,11 +25,13 @@
                             <input type="number" name="current_salary" class="form-control form-control-md" required />
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button type="submit" name="submit_profile" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Save</button>
+                            <button type="submit" name="submit_profile" class="site-button btn-block btn-lg">Save</button>
                         </div>
                     </form>
 
-                    <h5 class="text-uppercase text-left mb-2">Update education</h5>
+                    <div class="p-3 mb-3  bg-light text-dark">
+                        <h5 class="text-uppercase text-center fw6 m-0">Update education</h5>
+                    </div>
                     <form method="post" action="profile/update">
                         <!-- First Name -->
                         <div class="form-group mb-4">
@@ -69,11 +73,13 @@
                             <input type="number" name="cgpa" class="form-control form-control-md" required/>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button type="submit" name="submit_education" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Save</button>
+                            <button type="submit" name="submit_education" class="site-button btn-block btn-lg"">Save</button>
                         </div>
                     </form>
 
-                    <h5 class="text-uppercase text-left mb-2">Update experience</h5>
+                    <div class="p-3 mb-3  bg-light text-dark">
+                        <h5 class="text-uppercase text-center fw6 m-0">Update experience</h5>
+                    </div>
                     <form method="post" action="profile/update">
                         <!-- First Name -->
                         <div class="form-outline mb-4">
@@ -107,9 +113,8 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="d-flex justify-content-center">
-                            <button type="submit" name="submit_experience" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Save</button>
+                            <button type="submit" name="submit_experience" class="site-button btn-block btn-lg">Save</button>
                         </div>
                     </form>
                 </div>

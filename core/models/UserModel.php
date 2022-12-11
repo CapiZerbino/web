@@ -18,29 +18,29 @@ class UserModel extends Model
     function executeQuery(string $type)
     {
         // TODO: Implement executeQuery() method.
-//        switch ($type)
-//        {
-//            case "":
-//
-//        }
+        switch ($type)
+        {
+            case "GetAllUser":
+                $this->getAllUser();
+                break;
+            default:
+                break;
+
+        }
     }
 
-    public function getUserType(): string
+    public function getUserType($user_type_id): string
     {
-        $sql = "SELECT user_type_name FROM `user_type` WHERE `id` = ?";
-        if ($stmt = $this->db_instance->prepare($sql)) {
-            $stmt->bind_param('i', $param_id);
-            $param_id = $_SESSION['user_type_id'];
-            if ($stmt->execute()) {
-                $stmt->store_result();
-                if (mysqli_stmt_num_rows($stmt) == 1) {
-                    mysqli_stmt_bind_result($stmt, $user_type_name);
-                    if (mysqli_stmt_fetch($stmt)) {
-                        return $user_type_name;
-                    }
-                }
-            }
-        }
-        return '';
+        $sql = "SELECT `user_type_name` FROM `user_type` WHERE `id` = ".$user_type_id;
+        $result = $this->db_instance->query($sql)->fetch_all();
+        return $result[0][0];
     }
+
+    public function getAllUser()
+    {
+        $sql = "SELECT * FROM `user_account`";
+        $result = $this->db_instance->query($sql);
+        $this->response["result"] = $result->fetch_all();
+    }
+
 }

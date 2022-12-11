@@ -4,7 +4,7 @@
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                     <h2 class="text-uppercase text-center mb-5">Find a job</h2>
-                    <form method="get" action="findJob">
+                    <form method="get" action="job/find">
                         <div class="input-group rounded">
                             <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                             <button  type = "submit" class="input-group-text border-0" id="search-addon">

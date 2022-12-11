@@ -12,6 +12,11 @@ class ExperienceDetailModel extends Model
     private string $job_location_country;
     private string $description;
 
+    public function loadQuery($user_account_id)
+    {
+        $this->user_account_id = $user_account_id;
+    }
+
     public function loadParams($user_account_id, $is_current_job, $start_date, $end_date, $job_title, $company_name,$job_location_city , $job_location_state,$job_location_country ,$description )
     {
         $this->user_account_id = $user_account_id;

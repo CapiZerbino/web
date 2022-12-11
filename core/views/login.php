@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <button type="submit" name="submit"
-                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
+                                            class="site-button btn-block btn-lg">Login</button>
                                 </div>
                                 <p class="text-center text-muted mt-5 mb-0">Do not have an account? <a href="register" class="fw-bold text-body"><u>Register here</u></a></p>
                             </form>

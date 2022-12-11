@@ -43,7 +43,8 @@ class LoginModel extends Model
                             $this->response['message'] = 'OK';
                             $this->response['id'] = $id;
                             $this->response['email'] = $email;
-                            $this->response['user_type_id'] = $user_type_id;
+                            $this->response['user_type'] = $this->getUserType($user_type_id);
+
                         } else {
                             $this->response['message'] = "The password you entered was not valid";
                         }
@@ -57,6 +58,14 @@ class LoginModel extends Model
                 $this->response['message'] = "Oops! Something went wrong. Please try again later.";
             }
         }
+    }
+
+    private function getUserType($user_type_id): string
+    {
+        $sql = "SELECT * FROM `user_type` WHERE `id` = " .$user_type_id;
+        echo $sql;
+        $result = $this->db_instance->query($sql);
+        return $result->fetch_all()[0][1];
     }
 
 

@@ -12,9 +12,9 @@
                                     <div class='card my-3'>
                                         <div class='card-body'>
                                             <h5 class='card-title'>Company: $job->company_name</h5>
-                                            <h6 class='card-subtitle mb-2 text-muted'>Jobdescription: $job->job_description</h6>
+                                            <h6 class='card-subtitle mb-2 text-muted'>Job description: $job->job_description</h6>
                                             <p class='card-text'>Created date: $job->created_date</p>
-                                            <a href='job/apply/$job->job_id' class='card-link'>Apply this job</a>
+                                            <a href='job/apply/$job->job_id' class='site-button'>Apply this job</a>
                                         </div>
                                     </div>
                                     ";

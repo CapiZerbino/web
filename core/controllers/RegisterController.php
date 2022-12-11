@@ -16,7 +16,6 @@ class RegisterController extends Controller
             case "":
                 if($_SERVER["REQUEST_METHOD"] == "POST")
                 {
-                    require "../models/RegisterModel.php";
                     $model = new RegisterModel();
                     $model->loadParams($_POST["email"], $_POST["password"], $_POST["confirm_password"], $_POST["role"]);
                     $model->executeQuery("post");

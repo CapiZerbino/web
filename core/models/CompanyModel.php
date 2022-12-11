@@ -111,8 +111,8 @@ class CompanyModel extends Model
         // TODO: Implement executeQuery() method.
         switch ($type)
         {
-            case "GetCompany":
-                $this->getCompany();
+            case "GetAllCompany":
+                $this->getAllCompany();
                 break;
             case "AddCompany":
                 $this->addCompany();
@@ -125,6 +125,12 @@ class CompanyModel extends Model
                 break;
             case "GetCompanyById":
                 $this->getCompanyById();
+                break;
+            case "RemoveCompany":
+                $this->removeCompany();
+                break;
+            case "GetCompanyStreamById":
+                $this->getCompanyStreamById();
                 break;
             default:
                 break;
@@ -176,9 +182,22 @@ class CompanyModel extends Model
 
     }
 
-    private function getCompany()
+    private function removeCompany()
     {
+        $sql = "DELETE FROM `company` WHERE `company`.`id` = " .$this->company_id;
+        $result = $this->db_instance->query($sql);
+        if($result === true) {
+            $this->response["message"] = "OK";
+        } else {
+            $this->response["message"] = "Oops! Something went wrong. Please try again later.";
+        }
+    }
 
+    private function getAllCompany()
+    {
+        $sql = "SELECT * FROM `company`";
+        $result = $this->db_instance->query($sql);
+        $this->response["result"] = $result->fetch_all();
     }
 
     private function getCompanyById()
@@ -224,5 +243,12 @@ class CompanyModel extends Model
             }
         }
         return [];
+    }
+
+    public function getCompanyStreamById($id): string
+    {
+        $sql = "SELECT `business_stream_name` FROM `business_stream` WHERE `id` = " . $id;
+        $result = $this->db_instance->query($sql)->fetch_all();
+        return $result[0][0];
     }
 }

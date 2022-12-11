@@ -1,7 +1,7 @@
 <?php
 class JobModel extends Model
 {
-
+    private int $id;
     private int $posted_by_id;
     private int $job_type_id;
     private int $company_id;
@@ -12,6 +12,11 @@ class JobModel extends Model
     private bool $is_active;
 
     private string $keyword;
+
+    public function loadQuery($id)
+    {
+        $this->id = $id;
+    }
 
     public function loadParams($posted_by_id, $job_type_id, $company_id, $is_company_name_hidden, $job_description, $job_location_id, $is_active)
     {
@@ -63,6 +68,9 @@ class JobModel extends Model
             case "GetAllJob":
                 $this->getJob();
                 break;
+            case "GetJobById":
+                $this->getJobById();
+                break;
             default:
                 break;
         }
@@ -85,6 +93,13 @@ class JobModel extends Model
 //            $searchTermKeywords[] = ""
 //        }
 
+    }
+
+    private function getJobById()
+    {
+        $sql = "SELECT * FROM `job_post` WHERE `id` = " .$this->id;
+        $result = $this->db_instance->query($sql);
+        $this->response["result"] = $result->fetch_all();
     }
 
     private function addJob()
@@ -111,6 +126,8 @@ class JobModel extends Model
             } else {
                 $this->response['message'] = "Oops! Something went wrong. Please try again later.";
             }
+        } else {
+            $this->response['message'] = "Oops! Something went wrong. Please try again later.";
         }
 
     }

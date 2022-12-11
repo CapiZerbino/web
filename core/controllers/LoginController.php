@@ -13,7 +13,6 @@ class LoginController extends Controller {
         switch ($action) {
             case "":
                 if($_SERVER["REQUEST_METHOD"] == "POST") {
-                    require ('../core/models/LoginModel.php');
                     $model = new LoginModel();
                     $model->loadParams($_POST["email"], $_POST["password"]);
                     $model->executeQuery("post");
@@ -27,7 +26,7 @@ class LoginController extends Controller {
                         $_SESSION["logged"] = true;
                         $_SESSION["id"] = $res["id"];
                         $_SESSION["email"] = $res["email"];
-                        $_SESSION["user_type_id"] = $res["user_type_id"];
+                        $_SESSION["user_type"] = $res["user_type"];
                         $_SESSION['showMessage'] = false;
                         $_SESSION['messageType'] = 'success';
                         $this->redirect("home");

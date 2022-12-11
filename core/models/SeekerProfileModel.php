@@ -9,6 +9,11 @@ class SeekerProfileModel extends Model
     private bool $is_annually_monthly;
     private string $currency;
 
+    public function loadQuery($user_account_id)
+    {
+        $this->user_account_id = $user_account_id;
+    }
+
     public function loadParams($user_account_id, $first_name, $last_name, $current_salary, $is_annually_monthly, $currency)
     {
         $this->user_account_id = $user_account_id;

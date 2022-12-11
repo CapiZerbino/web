@@ -6,7 +6,6 @@
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-5">
                                 <h2 class="text-uppercase text-center mb-5">Create an account</h2>
-
                                 <form method="post" action="register">
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3cg">Your Email</label>
@@ -36,7 +35,7 @@
 
                                     <div class="d-flex justify-content-center">
                                         <button type="submit" name="submit"
-                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                                            class="site-button btn-block btn-lg">Register</button>
                                     </div>
 
                                     <p class="text-center text-muted mt-5 mb-0">Have already an account? <a
